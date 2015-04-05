@@ -1,0 +1,8 @@
+<% item ||= @item %>
+
+<%= raw RDiscount.new(item.description).to_html %>
+<ul>
+  <%= item.items.each do |file| %>
+      <li><%= link_to(file.to_s, file.url) %></li>
+  <% end %>
+</ul>

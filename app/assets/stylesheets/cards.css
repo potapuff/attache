@@ -1,0 +1,31 @@
+.smallcard {
+    background: #FFF;
+    border: 1px solid #AAA;
+    border-radius: 2px;
+    padding: 8px;
+    font-size: 14px;
+    box-shadow: 2px 2px 3px 0 rgba(0, 0, 0, 0.26);
+}
+
+.smallcard:hover, .card:hover {
+    background: #feffde;
+}
+
+.smallcard ul {
+    list-style: outside none none;
+}
+
+.card {
+    background: #FFF;
+    border: 1px solid #AAA;
+    border-radius: 2px;
+    padding: 16px;
+    font-size: 14px;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+    margin: 8px;
+}
+
+.card .card {
+    padding: 8px;
+    margin: 4px;
+}

@@ -1,0 +1,10 @@
+<% item ||= @item %>
+
+<%= simple_form_for([:event, item], html: {class: 'form-horizontal', id: item.fid}, remote: true) do |f| %>
+    <%= f.hidden_field :type %>
+    <%= f.hidden_field :fid %>
+    <%= f.input :description %>
+    <%= f.file_field :items, multiple: true %>
+    <%= f.button :submit %>
+<% end %>
+<script>form_ajax_register('#<%=fid%>')</script>

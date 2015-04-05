@@ -1,0 +1,3 @@
+<% item ||= @item %>
+
+<%= raw RDiscount.new(item.description.to_s+' '+link_to(item.name, item.url)).to_html %>

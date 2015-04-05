@@ -1,0 +1,1 @@
+$("#<%=@item.fid%>").replaceWith('<%= j render(:partial=> "/items/#{@item.stype}/show", :locals=>{item:@item}) %>');

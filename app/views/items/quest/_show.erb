@@ -1,0 +1,14 @@
+<% item ||= @item
+   answer ||= Answer.find_or_initialize_by(item_id: item.id, session_id: session[:user])
+%>
+
+<%= raw RDiscount.new(item.description).to_html %>
+<% if answer.new_record? %>
+    <%= simple_form_for([item.event, Item.new(id: item.id), answer], html: {class: 'form-horizontal', id: item.fid}, remote: true) do |f| %>
+        <%= f.error_notification %>
+        <%= f.input :text %>
+        <%= f.button :submit %>
+    <% end %>
+<% else %>
+    <i><%= h answer.text %></i>
+<% end %>

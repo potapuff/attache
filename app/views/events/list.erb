@@ -1,0 +1,19 @@
+<% content_for :sidebar do %>
+    <% Item::SUB_TYPES.each do |k, v| %>
+        <li>
+          <span class='newItem' data-type='<%= k.to_s %>'><%= fa_icon v.icon, class: 'fa-3x' %></span>
+          new <%= k.to_s %>
+        </li>
+    <% end %>
+<% end %>
+
+<div id="events">
+  <% @events.group_by { |x| x.date }.each do |date, events| %>
+      <h2><%= date.strftime('%D') %></h2>
+      <% events.sort_by { |x| x.pair }.each do |event| %>
+          <%= content_tag :div, class: 'event smallcard', id: event.id do %>
+              <%= render partial: 'show', locals: {event: event} %>
+          <% end %>
+      <% end %>
+  <% end %>
+</div>

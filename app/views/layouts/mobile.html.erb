@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="cleartype" content="on">
+  <meta name="MobileOptimized" content="320">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>Attacher</title>
+  <%= stylesheet_link_tag 'mobile/application' %>
+  <%= javascript_include_tag 'mobile/slideout' %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<nav id="menu">
+  <header>
+    <h2>Menu</h2>
+  </header>
+</nav>
+
+<main id="panel">
+  <header><h2>
+    <%= image_tag('menu.png', onclick: 'slideout.toggle();') %>
+    <%= yield(:panel_title) %>
+  </h2></header>
+
+  <%= yield %>
+</main>
+
+<script>
+    var slideout = new Slideout({
+        'panel': document.getElementById('panel'),
+        'menu': document.getElementById('menu'),
+        'padding': 256,
+        'tolerance': 70
+    });
+</script>
+</body>
+</html>

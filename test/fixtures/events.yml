@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  pair: MyString
+  name_aud: MyString
+  name_group: MyString
+  abbr_disc: MyString
+  name_stud: MyString
+  reason: MyString
+  kod_stud: MyString
+  kod_fio: MyString
+  info: MyString
+
+two:
+  pair: MyString
+  name_aud: MyString
+  name_group: MyString
+  abbr_disc: MyString
+  name_stud: MyString
+  reason: MyString
+  kod_stud: MyString
+  kod_fio: MyString
+  info: MyString
