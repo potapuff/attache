@@ -2,13 +2,16 @@
    answer ||= Answer.find_or_initialize_by(item_id: item.id, session_id: session[:user])
 %>
 
-<%= raw RDiscount.new(item.description).to_html %>
 <% if answer.new_record? %>
-    <%= simple_form_for([item.event, Item.new(id: item.id), answer], html: {class: 'form-horizontal', id: item.fid}, remote: true) do |f| %>
+    <%= simple_form_for([item.event, Item.new(id: item.id), answer],
+                        html: {class: 'form-horizontal'}, remote: true, format: :html) do |f| %>
+        <%= raw item.content %>
         <%= f.error_notification %>
         <%= f.input :text %>
         <%= f.button :submit %>
     <% end %>
 <% else %>
+    <%= raw item.content %>
+    <b><%= t('quest.show.answer')%></b>
     <i><%= h answer.text %></i>
 <% end %>

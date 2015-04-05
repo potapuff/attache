@@ -11,7 +11,7 @@ class ItemsController < ApplicationController
     param = params.detect { |x| Item::SUB_TYPES.keys.include? x[0].to_s }[1]
     param[:event_id] = params[:event_id]
     param.permit!
-    @item = Item.new(param)
+    @item = Item.by_type(param[:type].downcase).new(param)
     if @item.save
       respond_to do |f|
         f.html { show }

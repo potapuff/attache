@@ -29,7 +29,7 @@ ul {
     padding: 0.5em 1em;
 }
 
-li.smallcard {
+ul.smallcard > li{
     border-bottom: 1px solid #c5cae9;
     list-style: outside none none;
     padding: 0 1em;

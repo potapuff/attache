@@ -4,5 +4,9 @@ class Rate < Item
     'star-o'
   end
 
+  def answer_params
+    super()+[:number]
+  end
+
 end
 

@@ -26,7 +26,7 @@ class AnswersController < ApplicationController
     end
 
     @answer.update_attributes(params.require(:answer).permit(@item.answer_params))
-    return render :text => 'ok'
+    return render :partial => "/items/#{@item.stype}/show", format: :html
 =begin
     respond_to do |format|
       if @answer.save

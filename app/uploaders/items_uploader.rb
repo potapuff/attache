@@ -1,6 +1,7 @@
 # encoding: utf-8
 
 class ItemsUploader < CarrierWave::Uploader::Base
+  include CarrierWave::MimeTypes
 
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
@@ -8,6 +9,7 @@ class ItemsUploader < CarrierWave::Uploader::Base
 
   # Choose what kind of storage to use for this uploader:
   storage :file
+  process :set_content_type
   # storage :fog
 
   # Override the directory where uploaded files will be stored.

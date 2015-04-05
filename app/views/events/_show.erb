@@ -14,9 +14,9 @@
 <% end %>
 
 <% if event.items %>
-    <ul>
+    <ul class='smallcard'>
       <% event.items.each do |item| %>
-          <li class='smallcard'>
+          <li>
             <%= render partial: "/items/#{item.type.downcase}/show", locals: {item: item} %>
           </li>
       <% end %>

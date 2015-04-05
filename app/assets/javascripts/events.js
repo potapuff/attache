@@ -13,30 +13,45 @@ $(function () {
                 url: "/events/" + $(this).attr('id') + "/items/new?type=" + type,
                 context: $(this)
             }).done(function (responce) {
-                $(this).find('ul').append('<li>' + responce + '</li>');
+                var robject = $('<li>'+responce+'</li>');
+                $(this).find('ul').append(robject);
+                robject.find('form').each(function (idx,obj){ form_ajax_register(obj)});
             });
             $(this).removeClass('hover');
         }
     });
 
     $('.newItem').draggable({containment: ".events", revert: true, revertDuration: 0});
+    $(document).find('form').each(function (idx,obj){ form_ajax_register(obj)});
 
 });
 
 
 function form_ajax_register(id) {
+    if (id == null) {
+        return;
+    }
     $(id)
         .bind("ajax:beforeSend", function (event, data, status, xhr) {
-            event.target.hide();
+            var form = $(event.target);
+            //TODO: fix it, broke send files via ajax
+            //form.children().prop('disabled',true);
+            form.addClass('disabled');
         })
         .bind("ajax:success", function (event, data, status, xhr) {
             console.log('...Good....');
-            console.log(xhr);
-            console.log(data);
+            var form = $(event.target);
+            var parent = form.parent();
+            form.children().prop('disabled',false);
+            form.replaceWith(data);
+            parent.find('form').each(function (idx,obj){ form_ajax_register(obj)});
         })
         .bind("ajax:error", function (event, data, status, xhr) {
             console.log('...Error....');
-            console.log(xhr);
-            console.log(data);
+            var form = $(event.target);
+            var parent = form.parent();
+            form.children().prop('disabled',false);
+            form.replaceWith(data);
+            parent.find('form').each(function (idx,obj){ form_ajax_register(obj)});
         });
 }

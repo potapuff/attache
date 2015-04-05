@@ -20,10 +20,19 @@
  *= cards
  */
 
+img{
+    vertical-align: middle;
+}
+
 .hover {
     background: #DDA;
 }
 
 .center {
     text-align: center;
+}
+
+.disabled, .disabled * {
+    color:#AAA;
+    border-color:#AAA;
 }

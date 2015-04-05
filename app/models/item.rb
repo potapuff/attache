@@ -26,7 +26,7 @@ class Item < ActiveRecord::Base
   end
 
   def content
-    description
+    RDiscount.new(description).to_html
   end
 
 end

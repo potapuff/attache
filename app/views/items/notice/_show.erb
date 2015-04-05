@@ -1,5 +1,5 @@
 <% item ||= @item %>
 
 <div class='alert alert-<%= item.style %>'>
-  <%= raw RDiscount.new(item.description).to_html %>
+  <%= raw item.content %>
 </div>
