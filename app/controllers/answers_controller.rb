@@ -24,7 +24,9 @@ class AnswersController < ApplicationController
     unless @answer.new_record?
       return render :text => 'to old' if @answer.updated_at < 30.minutes.ago
     end
-
+    @item.process_params(params)
+    logger.info('-----'*10)
+    logger.info(params)
     @answer.update_attributes(params.require(:answer).permit(@item.answer_params))
     return render :partial => "/items/#{@item.stype}/show", format: :html
 =begin

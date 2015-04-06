@@ -51,7 +51,7 @@ function form_ajax_register(id) {
             var form = $(event.target);
             var parent = form.parent();
             form.children().prop('disabled',false);
-            form.replaceWith(data);
+            form.replaceWith(data.responseText);
             parent.find('form').each(function (idx,obj){ form_ajax_register(obj)});
         });
 }

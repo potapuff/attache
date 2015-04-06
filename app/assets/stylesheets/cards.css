@@ -34,3 +34,7 @@ div.smallcard .alert, ul.smallcard > li .alert {
     padding: 8px;
     margin: 4px;
 }
+
+.sidebar-nav {
+    background-color: #9fa8da;
+}

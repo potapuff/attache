@@ -4,7 +4,7 @@ class Attach < Item
   mount_uploader :item, ItemsUploader
 
   def self.icon
-    'file'
+    'paperclip'
   end
 
   #hack over save fields into json attribute

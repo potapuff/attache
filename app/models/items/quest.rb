@@ -4,7 +4,7 @@ class Quest < Item
   belongs_to :event
 
   def self.icon
-    'star'
+    'pencil-square-o'
   end
 
   def answer_params

@@ -1,15 +1,17 @@
 class ItemsController < ApplicationController
 
+  helper :opinion
+
   def new
     type = params.delete(:type)
     @item = Item.by_type(type).new(event_id: params[:event_id])
-    @item.fid = 'f'+rand.to_s[2..-1]
     render :partial => "/items/#{@item.stype}/form"
   end
 
   def create
     param = params.detect { |x| Item::SUB_TYPES.keys.include? x[0].to_s }[1]
     param[:event_id] = params[:event_id]
+    #$TODO: validate!
     param.permit!
     @item = Item.by_type(param[:type].downcase).new(param)
     if @item.save

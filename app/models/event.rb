@@ -22,6 +22,10 @@ class Event < ActiveRecord::Base
     events
   end
 
+  def to_param
+    return uid
+  end
+
   private
 
   def self.build(record)
@@ -54,5 +58,7 @@ class Event < ActiveRecord::Base
     name_aud = Event.aud_normalize(name_aud)
     name_pair+reg_date+name_aud
   end
+
+
 
 end

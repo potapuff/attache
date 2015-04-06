@@ -7,12 +7,12 @@ default: &default
 
 development:
   <<: *default
-  database: voter
+  database: atache
 
 test:
   <<: *default
-  database: voter_test
+  database: atache_test
 
 production:
   <<: *default
-  database: voter
+  database: atache

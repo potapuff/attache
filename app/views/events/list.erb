@@ -1,10 +1,15 @@
 <% content_for :sidebar do %>
+    <ul class="nav nav-list">
     <% Item::SUB_TYPES.each do |k, v| %>
-        <li>
-          <span class='newItem' data-type='<%= k.to_s %>'><%= fa_icon v.icon, class: 'fa-3x' %></span>
-          new <%= k.to_s %>
+        <li class='newItem' data-type='<%= k.to_s %>'>
+          <span>
+            <%= fa_icon v.icon, class: 'fa-3x' %>
+            <%= t(k.to_s+'.new') %>
+          </span>
         </li>
     <% end %>
+    </ul>
+    <%= t 'action.add_item' %>
 <% end %>
 
 <div id="events">
@@ -17,3 +22,4 @@
       <% end %>
   <% end %>
 </div>
+

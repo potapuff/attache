@@ -1,4 +1,4 @@
 <% item ||= @item %>
 
-<%= raw item.content %>
-<%= link_to(item.item.file.original_filename, item.item.url) %>
+<%= h raw item.content %>
+<%= h link_to(item.item.file.original_filename, item.item.url) %>

@@ -7,9 +7,9 @@
   <meta name="HandheldFriendly" content="True">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-  <title>Attacher</title>
+  <title>Attache</title>
   <%= stylesheet_link_tag 'mobile/application' %>
-  <%= javascript_include_tag 'mobile/slideout' %>
+  <%= javascript_include_tag 'mobile/application' %>
   <%= csrf_meta_tags %>
 </head>
 <body>
@@ -21,20 +21,12 @@
 
 <main id="panel">
   <header><h2>
-    <%= image_tag('menu.png', onclick: 'slideout.toggle();') %>
+    <%= image_tag 'menu.png', id:'menuToggle' %>
     <%= yield(:panel_title) %>
   </h2></header>
 
   <%= yield %>
 </main>
 
-<script>
-    var slideout = new Slideout({
-        'panel': document.getElementById('panel'),
-        'menu': document.getElementById('menu'),
-        'padding': 256,
-        'tolerance': 70
-    });
-</script>
 </body>
 </html>

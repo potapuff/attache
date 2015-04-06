@@ -1,9 +1,7 @@
-<% item ||= @item
-   answer ||= Answer.find_or_initialize_by(item_id: item.id, session_id: session[:user])
-%>
+<% item ||= @item %>
 
 <% if answer.new_record? %>
-    <%= simple_form_for([item.event, Item.new(id: item.id), answer],
+    <%= simple_form_for([item.event, Item.new(id: item.id), item.answer(@current_user)],
                         html: {class: 'form-horizontal'}, remote: true, format: :html) do |f| %>
         <%= raw item.content %>
         <%= f.error_notification %>
@@ -13,5 +11,5 @@
 <% else %>
     <%= raw item.content %>
     <b><%= t('quest.show.answer')%></b>
-    <i><%= h answer.text %></i>
+    <i><%= h item.answer(@current_user).text %></i>
 <% end %>

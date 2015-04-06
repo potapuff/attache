@@ -6,48 +6,48 @@ class EventsController < ApplicationController
   has_mobile_fu
   has_mobile_fu_for :show
 
-  before_filter :require_id, except: :index
-
+  before_filter :require_id,  except: :index
 
   def index
     render layout: 'minimal';
   end
 
   def by_group
-    update('group', params[:id]) if params[:update]
-    @events ||= Event.all.includes(:items)
+    update('group', params[:id])
+    #@events ||= Event.all.includes(:items=>[:answers]).where(answers:{session_id:session[:id]})
     render :list
   end
 
   def by_tutor
-    update('fio', params[:id]) if params[:update]
-    @events ||= Event.all.includes(:items)
+    update('fio', params[:id])
+    #update('fio', params[:id]) if params[:update]
+    #@events ||= Event.all.includes(:items)
+    @events = Event.where(tutor_id:params[:id],date: [Date.today..1.week.from_now])
+                    .eager_load(:items=>[:answers])
+                    .where('(session_id = ? or session_id is null)',session[:user])
     render :list
   end
 
   def show
-    @event = Event.find(params[:id])
+    @event = Event.where(uid:params[:id]).first
     respond_to do |f|
       f.html { render action: 'show' }
-#      f.html {render layout:'mobile', action:'show'}
       f.qr { qr }
-      f.mobile { render layout: 'mobile', action: 'show' }
+      f.mobile { render layout: 'mobile.html', action: 'show' }
     end
   end
 
   private
 
   def require_id
-    unless params[:id]
-      redirect_to action: :index
-    end
+    redirect_to( action: :index) unless params[:id]
   end
 
   def qr
-    @event ||= Event.find(params[:id])
+    @event ||= Event.find(params[:uid])
     path = url_for(@event)
-    filepath = "public/qr/#{@event.id}.png"
-    qr = RQRCode::QRCode.new(path, size: 4, level: :h)
+    filepath = "public/qr/#{@event.to_param}.png"
+    qr = RQRCode::QRCode.new(path, size: 4, level: :q)
     png = qr.to_img
     png.resize(300, 300).save(filepath)
     send_file(filepath)

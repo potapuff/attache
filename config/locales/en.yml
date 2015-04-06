@@ -20,4 +20,24 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  action:
+    add_item: "Drag&Drop item to dashboard"
+  attach:
+    new: "Attachment"
+  choise:
+    new: "Multi-variant question"
+  link:
+    new: "Link"
+  rate:
+    new: "Rating"
+  notice:
+    new: "Notice"
+    styles:
+      warning: "Warning"
+      success: "success"
+      info:    "info"
+      danger:  "danger"
+  quest:
+    new: "Open question"
+    show:
+      answer: "My answer"
