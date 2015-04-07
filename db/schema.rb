@@ -17,32 +17,32 @@ ActiveRecord::Schema.define(version: 20150404132632) do
   enable_extension "plpgsql"
 
   create_table "answers", force: :cascade do |t|
-    t.integer "item_id"
-    t.string "session_id"
-    t.integer "number"
-    t.text "text"
+    t.integer  "item_id"
+    t.string   "session_id"
+    t.integer  "number"
+    t.text     "text"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "events", force: :cascade do |t|
-    t.string "uid"
-    t.integer "pair"
-    t.date "date"
-    t.string "name_aud"
-    t.string "name_group"
-    t.string "abbr_disc"
-    t.string "name_stud"
-    t.string "reason"
-    t.string "stud_type_id"
-    t.integer "tutor_id"
-    t.string "info"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "uid"
+    t.integer  "pair"
+    t.date     "date"
+    t.string   "name_aud"
+    t.string   "name_group"
+    t.string   "abbr_disc"
+    t.string   "name_stud"
+    t.string   "reason"
+    t.string   "stud_type_id"
+    t.integer  "tutor_id"
+    t.string   "info"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
   create_table "groups", force: :cascade do |t|
-    t.string "name"
+    t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -51,7 +51,7 @@ ActiveRecord::Schema.define(version: 20150404132632) do
 #   Unknown type 'item_types' for column 'type'
 
   create_table "tutors", force: :cascade do |t|
-    t.string "name"
+    t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

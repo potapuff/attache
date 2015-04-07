@@ -1,4 +1,4 @@
 <% item ||= @item %>
 
 <%= h raw item.content %>
-<%= h link_to(item.item.file.original_filename, item.item.url) %>
+<%= h link_to(icon_by_mime(item.mime_type)+item.item.file.original_filename, item.item.url) %>

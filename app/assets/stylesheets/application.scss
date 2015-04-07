@@ -16,9 +16,7 @@
  *= require_directory .
  */
 
-img {
-    vertical-align: middle;
-}
+$primary-color: #3f51b5;
 
 .hover {
     background: #DDA;
@@ -49,11 +47,16 @@ main {
   flex: 1 0 auto;
 }
 
+a {
+  color: $primary-color;
+}
+
 a.brand-logo img, a i.fa {
   vertical-align: text-top;
 }
 
-a i.fa, span i.fa{
+
+a i.fa, span i.fa, img{
   vertical-align: middle;
 }
 
@@ -78,5 +81,5 @@ ul:empty{
 
 nav, footer.page-footer {
   color: #ffffff;
-  background: #3f51b5;
+  background: $primary-color;
 }

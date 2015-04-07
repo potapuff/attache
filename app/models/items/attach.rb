@@ -28,5 +28,12 @@ class Attach < Item
     self.fields[column.to_s] || self.fields[column.to_sym]
   end
 
+  def mime_type
+    @mime_type ||= begin
+       filename = item.file.original_filename
+       MIME::Types.type_for(filename ).first
+    end
+  end
+
 end
 
