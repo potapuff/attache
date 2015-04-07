@@ -1,0 +1,82 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *= require jquery-ui
+ *= require font-awesome
+ *= require materialize
+ *= require_self
+ *= require_directory .
+ */
+
+img {
+    vertical-align: middle;
+}
+
+.hover {
+    background: #DDA;
+}
+
+.center {
+    text-align: center;
+}
+.vcenter{
+  top: 50%;
+  transform: translateY(-50%);
+  position: relative;
+}
+
+.disabled, .disabled * {
+    color: #AAA;
+    border-color: #AAA;
+}
+
+body {
+  background: #e0e0e0;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+a.brand-logo img, a i.fa {
+  vertical-align: text-top;
+}
+
+a i.fa, span i.fa{
+  vertical-align: middle;
+}
+
+ul:empty{
+  display:none;
+}
+
+@media only screen and (min-width: 601px) {
+  .container {
+    width: 95%;
+  }
+}
+@media only screen and (min-width: 993px) {
+  .container {
+    width: 90%;
+  }
+}
+
+.lshift{
+  margin-left: -1em;
+}
+
+nav, footer.page-footer {
+  color: #ffffff;
+  background: #3f51b5;
+}
