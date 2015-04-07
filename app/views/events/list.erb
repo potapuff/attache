@@ -1,23 +1,25 @@
 <% content_for :sidebar do %>
     <ul class="nav nav-list">
-    <% Item::SUB_TYPES.each do |k, v| %>
-        <li class='newItem' data-type='<%= k.to_s %>'>
+      <% Item::SUB_TYPES.each do |k, v| %>
+          <li class='newItem' data-type='<%= k.to_s %>'>
           <span>
             <%= fa_icon v.icon, class: 'fa-3x' %>
             <%= t(k.to_s+'.new') %>
           </span>
-        </li>
-    <% end %>
+          </li>
+      <% end %>
     </ul>
     <%= t 'action.add_item' %>
 <% end %>
 
 <div id="events">
   <% @events.group_by { |x| x.date }.each do |date, events| %>
-      <h2><%= date.strftime('%D') %></h2>
+      <h5 class="lshift"><%= date.strftime('%D') %></h5>
       <% events.sort_by { |x| x.pair }.each do |event| %>
-          <%= content_tag :div, class: 'event smallcard', id: event.id do %>
-              <%= render partial: 'show', locals: {event: event} %>
+          <%= content_tag :div, class: 'card event', id: event.id do %>
+              <div class="card-content">
+                 <%= render partial: 'show', locals: {event: event} %>
+              </div>
           <% end %>
       <% end %>
   <% end %>

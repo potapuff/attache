@@ -5,7 +5,7 @@
         <%= event.name_aud %>
     <% end %>
 <% else %>
-    <span>
+  <span class="card-title black-text">
   <%= link_to(fa_icon('qrcode', class: 'fa-2x'), event_path(event, :format => 'qr')) %>
       <%= event.pair %>
       <%= event.abbr_disc %>
@@ -13,12 +13,14 @@
 </span>
 <% end %>
 
-<% if event.items %>
-    <ul class='smallcard'>
+<% unless event.items.blank? %>
+    <ul class='collection'>
       <% event.items.each do |item| %>
-          <li>
+          <li class="collection-item">
             <%= render partial: "/items/#{item.type.downcase}/show", locals: {item: item} %>
           </li>
       <% end %>
     </ul>
+<% else %>
+    <ul class='collection'></ul>
 <% end %>

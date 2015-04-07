@@ -16,12 +16,11 @@ gem 'jquery-rails'
 gem 'jquery-ui-rails', '~> 5.0.3'
 gem 'font-awesome-rails'
 gem 'select2-rails'
-gem 'twitter-bootstrap-rails'
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 2.0'
+#gem 'jbuilder', '~> 2.0'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -33,9 +32,9 @@ gem 'jbuilder', '~> 2.0'
 # gem 'capistrano-rails', group: :development
 
 #if linux
-  #gem 'therubyracer'
+   #gem 'therubyracer'
 #if windows
-   gem 'extjs'
+    gem 'extjs'
 #end
 
 gem 'tzinfo-data'
@@ -53,6 +52,7 @@ gem 'rqrcode_png', '~> 0.1.5' #qr-code genetion
 gem 'rdiscount', '1.6.8' #??? widows wtf #Marckdoun support
 
 gem 'mobile-fu', '~> 1.3.1' #Mobile detection
+gem 'materialize-sass'
 
 
 group :development, :test do

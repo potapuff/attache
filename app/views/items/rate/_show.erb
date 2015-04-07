@@ -5,17 +5,17 @@
 
 <% if answer.new_record? %>
     <%= simple_form_for([item.event, Item.new(id: item.id), answer],
-                        html: {class: 'form-inline', name:item.id}, remote: true, format: :html) do |f| %>
+                        html: {class: 'form-inline', name: item.id}, remote: true, format: :html) do |f| %>
         <%= raw item.content %>
         <%= f.error_notification %>
-        <%= f.collection_radio_buttons :number, [[1,1],[2,2],[3,3],[4,4],[5,5]], :first, :last, { item_wrapper_tag: false } do |b|
-             b.radio_button(id:'r'+fid) + b.label(id:'l'+fid)
-         end %>
+        <%= f.collection_radio_buttons :number, [[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]], :first, :last, {item_wrapper_tag: false} do |b|
+          b.radio_button(id: 'r'+fid) + b.label(id: 'l'+fid)
+        end %>
         <%= f.button :submit %>
     <% end %>
 <% else %>
     <%= raw item.content %>
-    <b><%= t('quest.show.answer')%></b>
+    <b><%= t('quest.show.answer') %></b>
     <i><%= h answer.number %></i>
 <% end %>
 

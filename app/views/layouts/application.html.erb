@@ -24,22 +24,27 @@
 </head>
 <body>
 
-<div class="navbar navbar-default navbar-static-top">
-  <div class="container">
-    <a class="navbar-brand" href="#"><%= image_tag('logo-b.png')%> Attach<i>e</i></a>
-  </div>
+<div class="navbar-fixed">
+  <nav>
+    <div class="nav-wrapper">
+      <div class="container">
+         <a class="brand-logo" href="#"><%= image_tag('logo-w.png') %> Attach&eacute;</a>
+         <ul class="right hide-on-med-and-down"> </ul>
+      </div>
+    </div>
+  </nav>
 </div>
 
 <div class="container">
   <div class="row">
-    <div class="col-lg-9">
+    <div class="col s9">
       <%= bootstrap_flash %>
       <%= yield %>
     </div>
     <% if content_for?(:sidebar) %>
-        <div class="col-lg-3">
-          <div class="well sidebar-nav card">
-             <%= yield(:sidebar) %>
+        <div class="col s3">
+          <div class="card-panel teal white-text">
+            <%= yield(:sidebar) %>
           </div>
           <!--/.well -->
         </div>
@@ -50,7 +55,7 @@
 
 </div>
 <!-- /container -->
-<footer class='footer'>
+<footer class="page-footer">
   <div class='container'>&copy; SSU 2015</div>
 </footer>
 

@@ -24,18 +24,25 @@
 </head>
 <body>
 
-<div class="navbar navbar-default navbar-static-top">
-  <div class="container">
-    <a class="navbar-brand" href="#"><%= image_tag('logo-b.png')%> Attach<i>e</i></a>
-  </div>
+
+<div class="navbar-fixed">
+  <nav>
+    <div class="nav-wrapper container">
+      <a class="brand-logo" href="#"><%= image_tag('logo-w.png') %> Attach&eacute;</a>
+      <ul class="right hide-on-med-and-down">
+      </ul>
+    </div>
+  </nav>
 </div>
 
+<main>
 <div class="container">
   <%= bootstrap_flash %>
   <%= yield %>
 </div>
+</main>
 
-<footer class="footer">
+<footer class="page-footer">
   <div class="container">&copy; SSU 2015</div>
 </footer>
 

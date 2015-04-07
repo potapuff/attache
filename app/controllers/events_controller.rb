@@ -6,7 +6,7 @@ class EventsController < ApplicationController
   has_mobile_fu
   has_mobile_fu_for :show
 
-  before_filter :require_id,  except: :index
+  before_filter :require_id, except: :index
 
   def index
     render layout: 'minimal';
@@ -14,7 +14,10 @@ class EventsController < ApplicationController
 
   def by_group
     update('group', params[:id])
-    #@events ||= Event.all.includes(:items=>[:answers]).where(answers:{session_id:session[:id]})
+    @group = Group.find(params[:id])
+    @events = Event.where(name_group: @group.name.upcase, date: [Date.today..1.week.from_now])
+                  .eager_load(:items => [:answers])
+                  .where('(session_id = ? or session_id is null)', session[:user])
     render :list
   end
 
@@ -22,14 +25,14 @@ class EventsController < ApplicationController
     update('fio', params[:id])
     #update('fio', params[:id]) if params[:update]
     #@events ||= Event.all.includes(:items)
-    @events = Event.where(tutor_id:params[:id],date: [Date.today..1.week.from_now])
-                    .eager_load(:items=>[:answers])
-                    .where('(session_id = ? or session_id is null)',session[:user])
+    @events = Event.where(tutor_id: params[:id], date: [Date.today..1.week.from_now])
+                  .eager_load(:items => [:answers])
+                  .where('(session_id = ? or session_id is null)', session[:user])
     render :list
   end
 
   def show
-    @event = Event.where(uid:params[:id]).first
+    @event = Event.where(uid: params[:id]).first
     respond_to do |f|
       f.html { render action: 'show' }
       f.qr { qr }
@@ -37,10 +40,10 @@ class EventsController < ApplicationController
     end
   end
 
-  private
+private
 
   def require_id
-    redirect_to( action: :index) unless params[:id]
+    redirect_to(action: :index) unless params[:id]
   end
 
   def qr

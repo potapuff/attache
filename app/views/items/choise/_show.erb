@@ -8,5 +8,5 @@
         <%= f.button :submit %>
     <% end %>
 <% else %>
-    <%= raw single_response(item.content, JSON.parse(item.answer(@current_user).text || '{}' )) %>
+    <%= raw single_response(item.content, JSON.parse(item.answer(@current_user).text || '{}')) %>
 <% end %>

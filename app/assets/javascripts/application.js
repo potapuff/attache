@@ -11,9 +11,9 @@
 // about supported directives.
 //
 //= require jquery
+//= require materialize-sprockets
 //= require jquery_ujs
 //= require jquery.remotipart
-//= require twitter/bootstrap
 //= require jquery-ui
 //= require turbolinks
 //= require select2

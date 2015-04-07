@@ -15,10 +15,10 @@ class Choise < Item
   def process_params params
     params[:answer] ||= {}
     params[:answer][:text] = {
-            'resp_radio' => params[:resp_radio],
-            'resp_check' => params[:resp_check],
-            'resp_text'  => params[:resp_text]
-        }.to_json.to_s
+        'resp_radio' => params[:resp_radio],
+        'resp_check' => params[:resp_check],
+        'resp_text' => params[:resp_text]
+    }.to_json.to_s
     params
   end
 
@@ -27,7 +27,7 @@ class Choise < Item
   end
 
   def content
-    description.gsub("\n","<br/>")
+    description.gsub("\n", "<br/>")
   end
 
   private

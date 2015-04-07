@@ -10,6 +10,6 @@
     <% end %>
 <% else %>
     <%= raw item.content %>
-    <b><%= t('quest.show.answer')%></b>
+    <b><%= t('quest.show.answer') %></b>
     <i><%= h item.answer(@current_user).text %></i>
 <% end %>

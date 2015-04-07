@@ -37,7 +37,7 @@ class Item < ActiveRecord::Base
 
   def answer(user)
     @answer ||= {}
-    @answer[user] ||= answers.detect{|x| x.session_id == user} || Answer.new(item_id: id, session_id: user)
+    @answer[user] ||= answers.detect { |x| x.session_id == user } || Answer.new(item_id: id, session_id: user)
   end
 
 end
