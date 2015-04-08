@@ -13,7 +13,7 @@ class EventsController < ApplicationController
   end
 
   def by_group
-    update('group', params[:id])
+    update('grp', params[:id])
     @group = Group.find(params[:id])
     @events = Event.where(name_group: @group.name.upcase, date: [Date.today..1.week.from_now])
                   .eager_load(:items => [:answers])
