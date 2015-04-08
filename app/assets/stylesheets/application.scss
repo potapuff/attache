@@ -85,6 +85,14 @@ nav, footer.page-footer {
   background: $primary-color;
 }
 
+.navbar-fixed {
+  opacity: 0.9;
+}
+
+.side-menu{
+  position: fixed;
+}
+
 .alert{
   padding: 10px 20px;
   margin: -10px -20px;

@@ -11,6 +11,8 @@
 /log/*
 !/log/.keep
 /tmp
+/tmp/*
 Gemfile.lock
 /public
+/public/*
 /config/secrets.yml

@@ -24,8 +24,7 @@ function form_ajax_register(id) {
     $(id)
         .bind("ajax:beforeSend", function (event, data, status, xhr) {
             var form = $(event.target);
-            //TODO: fix it, broke send files via ajax
-            //form.children().prop('disabled',true);
+            form.children().prop('disabled',true);
             form.addClass('disabled');
         })
         .bind("ajax:success", function (event, data, status, xhr) {

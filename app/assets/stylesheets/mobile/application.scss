@@ -39,3 +39,12 @@ ul.collection > li {
 a {
   color:$primary-color;
 }
+
+.alert{
+  padding: 10px 20px;
+  margin: -10px -20px;
+}
+.alert-success{ background: #81C784;}
+.alert-info {background: #9fa8da;}
+.alert-warning {background: #ffb74d;}
+.alert-danger{ background: #f3989b;}
