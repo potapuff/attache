@@ -3,6 +3,6 @@
 <%= simple_form_for([:event, item], html: {class: 'form-horizontal'}, remote: true, format: :html) do |f| %>
     <%= f.hidden_field :type %>
     <%= f.input :description %>
-    <%= f.input :style, collection: Notice::STYLES %>
+    <%= f.input :style, collection: Notice::STYLES, class:'browser-default' %>
     <%= f.button :submit %>
 <% end %>

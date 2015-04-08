@@ -26,15 +26,15 @@ gem 'turbolinks'
 # gem 'bcrypt', '~> 3.1.7'
 
 # Use Unicorn as the app server
-# gem 'unicorn'
+gem 'unicorn'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
 #if linux
-   #gem 'therubyracer'
+   gem 'therubyracer'
 #if windows
-    gem 'extjs'
+   #gem 'extjs'
 #end
 
 gem 'tzinfo-data'
@@ -49,7 +49,7 @@ gem 'simple_form'
 gem 'russian', '~> 0.6.0' # transliteration
 gem 'rqrcode_png', '~> 0.1.5' #qr-code genetion
 
-gem 'rdiscount', '1.6.8' #??? widows wtf #Marckdoun support
+gem 'rdiscount'#, '1.6.8' #??? widows wtf #Marckdoun support
 
 gem 'mobile-fu', '~> 1.3.1' #Mobile detection
 gem 'materialize-sass'

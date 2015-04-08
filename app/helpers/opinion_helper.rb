@@ -51,11 +51,12 @@ module OpinionHelper
 
   def form_for_opinion(opin_text)
     quest_iterator(opin_text) do |q_num, fragment, field_count|
+      rid = 'r'+rand.to_s[2..-1]
       case fragment
         when 'radio';
-          '<input type="radio" name="resp_radio['+q_num.to_s+']" value="'+field_count.to_s+'" />'
+          '<input type="radio" name="resp_radio['+q_num.to_s+']" value="'+field_count.to_s+'" id="'+rid+'"></input><label for="'+rid+'"></label>'
         when 'check';
-          '<input type="checkbox" name="resp_check['+q_num.to_s+'][]" value="'+field_count.to_s+'" />'
+          '<input type="checkbox" name="resp_check['+q_num.to_s+'][]" value="'+field_count.to_s+'" id="'+rid+'"></input><label for="'+rid+'"></label>'
         when 'text';
           '<textarea rows="5" cols="80" name="resp_text['+q_num.to_s+']['+field_count.to_s+']"></textarea>'
         when 'stext';

@@ -13,15 +13,25 @@
 <% end %>
 
 <div id="events">
-  <% @events.group_by { |x| x.date }.each do |date, events| %>
-      <h5 class="lshift"><%= date.strftime('%D') %></h5>
-      <% events.sort_by { |x| x.pair }.each do |event| %>
-          <%= content_tag :div, class: 'card event', id: event.id do %>
-              <div class="card-content">
-                 <%= render partial: 'show', locals: {event: event} %>
-              </div>
-          <% end %>
-      <% end %>
-  <% end %>
+  <% unless @events.blank? %>
+    <% @events.group_by { |x| x.date }.sort_by{|x,y| x}.each do |date, events| %>
+        <h5 class="lshift"><%= date.strftime('%D') %></h5>
+        <% events.sort_by { |x| x.pair }.each do |event| %>
+            <%= content_tag :div, class: 'card event', id: event.id do %>
+                <div class="card-content">
+                   <%= render partial: 'show', locals: {event: event} %>
+                </div>
+            <% end %>
+        <% end %>
+    <% end %>
+  <% else %>
+  <div class="center">
+      <span class="fa-stack fa-5x">
+          <i class="fa fa-circle fa-stack-2x primary"></i>
+          <i class="fa fa-question fa-inverse fa-stack-1x"></i>
+      </span><br/>
+      <h1>Пока ничего нет</h1>
+  </div>
+  <% end%>
 </div>
 

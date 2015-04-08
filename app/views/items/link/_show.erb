@@ -1,4 +1,4 @@
 <% item ||= @item %>
 
 <%= raw item.content %>
-<%= link_to(item.name, item.url) %>
+<%= link_to(fa_icon('link')+item.name, item.url) %>

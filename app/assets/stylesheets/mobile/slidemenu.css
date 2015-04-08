@@ -14,7 +14,9 @@ body {
     z-index: 0;
     width: 256px;
     overflow-y: auto;
-    -webkit-overflow-scrolling: touch display : none;
+    -webkit-overflow-scrolling: touch;
+    display : none;
+    background:#e0e0e0;
 }
 
 .slideout-panel {

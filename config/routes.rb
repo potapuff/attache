@@ -22,7 +22,7 @@ Rails.application.routes.draw do
     resources :items do
       resources :answers
     end
-    get 'by_group/:id', on: :collection, action: :by_broup
+    get 'by_group/:id', on: :collection, action: :by_group
     get 'by_tutor/:id', on: :collection, action: :by_tutor
   end
 

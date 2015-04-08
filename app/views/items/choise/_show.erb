@@ -1,12 +1,14 @@
-<% item ||= @item %>
+<% item ||= @item
+   answer = item.answer(@current_user)
+%>
 
 <% if answer.new_record? %>
-    <%= simple_form_for([item.event, Item.new(id: item.id), item.answer(@current_user)],
+    <%= simple_form_for([item.event, Item.new(id: item.id), answer],
                         html: {class: 'form-horizontal'}, remote: true, format: :html) do |f| %>
         <%= f.error_notification %>
         <%= raw form_for_opinion(item.content) %>
         <%= f.button :submit %>
     <% end %>
 <% else %>
-    <%= raw single_response(item.content, JSON.parse(item.answer(@current_user).text || '{}')) %>
+    <%= raw single_response(item.content, JSON.parse(answer.text || '{}')) %>
 <% end %>

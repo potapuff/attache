@@ -13,7 +13,7 @@ $(function () {
                 url: "/events/" + $(this).attr('id') + "/items/new?type=" + type,
                 context: $(this)
             }).done(function (responce) {
-                var robject = $('<li>' + responce + '</li>');
+                var robject = $('<li class="collection-item">' + responce + '</li>');
                 $(this).find('ul').append(robject);
                 robject.find('form').each(function (idx, obj) {
                     form_ajax_register(obj)
