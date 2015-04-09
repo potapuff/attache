@@ -51,9 +51,11 @@ private
     @event ||= Event.find(params[:uid])
     path = url_for(@event)
     filepath = "public/qr/#{@event.to_param}.png"
-    qr = RQRCode::QRCode.new(path, size: 5, level: :q)
-    png = qr.to_img
-    png.resize(300, 300).save(filepath)
+    unless File.exist?(filepath)
+      qr = RQRCode::QRCode.new(path, size: 5, level: :q)
+      png = qr.to_img
+      png.resize(300, 300).save(filepath)
+    end
     send_file(filepath)
   end
 

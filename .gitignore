@@ -16,3 +16,4 @@ Gemfile.lock
 /public
 /public/*
 /config/secrets.yml
+.idea/*
