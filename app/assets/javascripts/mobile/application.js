@@ -10,7 +10,7 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require zepto
+//= require jquery
 //= require jquery_ujs
-//= require form_sign
-//= require slideout
+//= require_self
+//= require_directory .

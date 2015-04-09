@@ -34,7 +34,8 @@ class EventsController < ApplicationController
   def show
     @event = Event.where(uid: params[:id]).first
     respond_to do |f|
-      f.html { render action: 'show' }
+      #f.html { render action: 'show' }
+      f.html { render layout: 'mobile.html', action: 'show' }
       f.qr { qr }
       f.mobile { render layout: 'mobile.html', action: 'show' }
     end
@@ -50,7 +51,7 @@ private
     @event ||= Event.find(params[:uid])
     path = url_for(@event)
     filepath = "public/qr/#{@event.to_param}.png"
-    qr = RQRCode::QRCode.new(path, size: 4, level: :q)
+    qr = RQRCode::QRCode.new(path, size: 5, level: :q)
     png = qr.to_img
     png.resize(300, 300).save(filepath)
     send_file(filepath)
