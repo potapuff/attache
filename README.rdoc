@@ -1,28 +1,33 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+It is a simple application, which allow attach different type of obects to pair of Sumy State University. Fell free to fork!
+
 
 Things you may want to cover:
 
 * Ruby version
+  - Windows: 2.1 (1.9+)
+  - Linux: 2.2 (1.9+)
 
 * System dependencies
+   - PostgreSQL 9.4 (9.2+) - Need Json type support
+   - Windows: Ruby DevKit http://rubyinstaller.org/add-ons/devkit/
 
 * Configuration
+   - Copy config/default_secrets.yml to config/secrets.yml + add production key
+   - Setup your database at config/database.yml
+   - Gemfile:
+     - Linux: use last version of RDiscount, and gem therubyracer
+     - Windows: user RDiscount 1.6.8 and gem extjs
 
 * Database creation
+   - rake db:create
 
 * Database initialization
+   - rake db:migrate
 
 * How to run the test suite
+   - There is no test :(
 
 * Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
