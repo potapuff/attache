@@ -15,7 +15,7 @@
 <div id="events">
   <% unless @events.blank? %>
     <% @events.group_by { |x| x.date }.sort_by{|x,y| x}.each do |date, events| %>
-        <h5 class="lshift"><%= date.strftime('%D') %></h5>
+        <h5 class="lshift"><%= date.strftime('%e/%-m/%Y') %></h5>
         <% events.sort_by { |x| x.pair }.each do |event| %>
             <%= content_tag :div, class: 'card event', id: event.id do %>
                 <div class="card-content">
@@ -32,6 +32,6 @@
       </span><br/>
       <h1>Пока ничего нет</h1>
   </div>
-  <% end%>
+  <% end %>
 </div>
 
