@@ -8,9 +8,11 @@
                         html: {class: 'form-horizontal', name: item.id}, remote: true, format: :html) do |f| %>
         <%= raw item.content %>
         <%= f.error_notification %>
-        <%= f.collection_radio_buttons :number, [[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]], :first, :last, {item_wrapper_tag: :p, boolean_style: :inline} do |b|
-          b.radio_button(id: "r#{fid+=1}") + b.label(for: "r#{fid}")
-        end %>
+        <div class="row">
+          <%= f.collection_radio_buttons :number, [[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]], :first, :last, {item_wrapper_tag: false, boolean_style: :inline } do |b|
+            b.radio_button(id: "r#{fid+=1}") + b.label(for: "r#{fid}")
+          end %>  
+        </div>
         <%= f.button :submit %>
     <% end %>
 <% else %>

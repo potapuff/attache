@@ -1,4 +1,4 @@
-/*
+
 .simple_form div.input {
   margin-bottom: 10px;
   clear: both; 
@@ -8,11 +8,11 @@
   float: left;
   margin: 2px 10px;
 }
-
+/*
 div.boolean, .simple_form input[type='submit'] {
   margin-left: 120px;
 }
-
+*/
 div.boolean label, label.collection_radio_buttons {
   float: none;
   margin: 0;
@@ -59,4 +59,6 @@ label.collection_check_boxes {
   vertical-align: -2px;
   margin-left: 2px;
 }
-*/
+.select {
+  display: block;
+}

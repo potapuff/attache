@@ -2,9 +2,11 @@
 
 <%= simple_form_for([:event, item], html: {class: 'form-horizontal'}, remote: true, format: :html) do |f| %>
     <%= f.hidden_field :type %>
-   	<%= f.input :description, input_html: { class: 'materialize-textarea' }, wrapper_html: { class: 'input-field' } %>
-    <%= f.input :name, wrapper_html: { class: 'input-field' } %>
-    <%= f.input :url, wrapper_html: { class: 'input-field' } %>
+    <div class="row">
+	   	<%= f.input :description, as: :string, input_html: { class: 'validate' }, wrapper_html: { class: 'input-field col m12 l6' } %>
+	    <%= f.input :name, input_html: { class: 'validate' }, wrapper_html: { class: 'input-field col m12 l6' } %>
+    </div>
+    <%= f.input :url, input_html: { class: 'validate' }, wrapper_html: { class: 'input-field' } %>
     <%= f.button :submit %>
 <% end %>
 

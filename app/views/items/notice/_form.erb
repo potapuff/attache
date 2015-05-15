@@ -2,8 +2,10 @@
 
 <%= simple_form_for([:event, item], html: {class: 'form-horizontal'}, remote: true, format: :html) do |f| %>
     <%= f.hidden_field :type %>
-    <%= f.input :description, input_html: { class: 'materialize-textarea' }, wrapper_html: { class: 'input-field' } %>
-   	<%= f.input :style, collection: Notice::STYLES, label: 'Select notice style' %>
+    <%= f.input :description, as: :string, input_html: { class: 'validate' }, wrapper_html: { class: 'input-field' } %>
+    <div class="row">
+   		<%= f.input :style, collection: Notice::STYLES, label: false, prompt: 'Select notice style', wrapper_html: { class: 'col s12 m6' } %>
+   	</div>
     <%= f.button :submit %>
 <% end %>
 
