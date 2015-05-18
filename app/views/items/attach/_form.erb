@@ -2,7 +2,15 @@
 
 <%= simple_form_for([:event, item], html: {class: 'form-horizontal'}, remote: true, format: :html) do |f| %>
     <%= f.hidden_field :type %>
-    <%= f.input :description %>
-    <%= f.file_field :item %>
+    <%= f.input :description, as: :string, input_html: { class: 'validate' }, wrapper_html: { class: 'input-field' } %>
+    <div class="file-field input-field">
+    	<input class="file-path validate" type="text">
+    	<div class="btn">
+    		<span>File</span>
+    		<%= f.file_field :item %>
+    	</div>
+    </div>
     <%= f.button :submit %>
 <% end %>
+
+        

@@ -7,7 +7,7 @@
                         html: {class: 'form-horizontal'}, remote: true, format: :html) do |f| %>
         <%= raw item.content %>
         <%= f.error_notification %>
-        <%= f.input :text %>
+        <%= f.input :text, input_html: { class: 'materialize-textarea' }, wrapper_html: { class: 'input-field' }  %>
         <%= f.button :submit %>
     <% end %>
 <% else %>

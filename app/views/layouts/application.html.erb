@@ -21,6 +21,7 @@
   <%= favicon_link_tag 'favicon.ico', :rel => 'shortcut icon' %>
 
   <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
+
 </head>
 <body>
 
@@ -28,7 +29,7 @@
   <nav>
     <div class="nav-wrapper">
       <div class="container">
-         <a class="brand-logo" href="#"><%= image_tag('logo-w.png') %> Attach&eacute;</a>
+         <a class="brand-logo" href="<%= root_url %>"><%= image_tag('logo-w.png') %> Attach&eacute;</a>
          <ul class="right hide-on-med-and-down"> </ul>
       </div>
     </div>

@@ -13,9 +13,11 @@
  *= require font-awesome
  *= require_directory .
  *= require_self
+ 
+ @import "materialize";
  */
 
-@import "materialize";
+
 
 $primary-color: #3f51b5;
 
@@ -101,3 +103,4 @@ nav, footer.page-footer {
 .alert-info {background: #9fa8da;}
 .alert-warning {background: #ffb74d;}
 .alert-danger{ background: #f3989b;}
+

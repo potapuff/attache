@@ -4,7 +4,8 @@
                     remote: true, format: :html) do |f| %>
     <%= f.error_notification %>
     <%= f.hidden_field :type %>
-    <%= f.input :description %>
+    <%= f.input :description, input_html: { class: 'materialize-textarea' }, wrapper_html: { class: 'input-field' } %>
     <%= f.button :submit %>
 <% end %>
 
+     
