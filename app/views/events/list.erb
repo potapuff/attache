@@ -18,9 +18,9 @@
         <h5 class="lshift"><%= date.strftime('%e/%-m/%Y') %></h5>
         <% events.sort_by { |x| x.pair }.each do |event| %>
             <%= content_tag :div, class: 'card event', id: event.id do %>
-                <div class="card-content">
-                   <%= render partial: 'show', locals: {event: event} %>
-                </div>
+              <div class="card-content">
+                <%= render partial: 'show', locals: {event: event} %>
+              </div>
             <% end %>
         <% end %>
     <% end %>

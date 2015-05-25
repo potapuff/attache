@@ -1,3 +1,5 @@
+<% @qr = RQRCode::QRCode.new(root_url+"events/"+event.uid, size: 4, level: :q)%>
+
 <% if in_mobile_view? %>
     <% content_for(:panel_title) do %>
         <%= event.pair %>
@@ -6,10 +8,53 @@
     <% end %>
 <% else %>
   <span class="card-title black-text">
-  <%= link_to(fa_icon('qrcode', class: 'fa-2x'), event_path(event, :format => 'qr')) %>
-      <%= event.pair %>
-      <%= event.abbr_disc %>
-      <%= event.name_aud %>
+    
+    <a class="modal-trigger" href="#modal<%= event.id %>"><%=fa_icon('share-square-o', class: 'fa-2x')%></a>
+<!-- Modal Structure -->
+    <div id="modal<%= event.id %>" class="modal">
+      <div class="modal-content">
+        <h5>
+          <%= event.pair %>
+          <%= event.abbr_disc %>
+          <%= event.name_aud %>
+        </h5>
+        <div class="row">
+          <div class="col s5">
+            <table>
+              <% @qr.modules.each_index do |x| %>
+                <tr>  
+                <% @qr.modules.each_index do |y| %>
+                  <% if @qr.dark?(x,y) %>
+                    <td class="black"/>
+                  <% else %>
+                    <td class="white"/>
+                  <% end %>
+                <% end %>
+                </tr>
+              <% end %>
+            </table>
+          </div>
+          <div class="col s7">
+            <div class="row">
+              <p class="center-align">Copy the link to the ivent</p>
+              <div class="input-field">
+                <input value="<%= root_url+"events/"+event.uid %>" type="url" onfocus="this.select()">
+              </div>
+              <p class="center-align">or</p>
+                <center><a href="<%= event_path(event, :format => 'qr') %>" class="waves-effect waves-light btn">Download qr code</a></center>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <a class=" modal-action modal-close waves-effect waves-green btn-flat">Close</a>
+      </div>
+    </div>
+<!-- End Modal Structure -->
+    
+        <%= event.pair %>
+        <%= event.abbr_disc %>
+        <%= event.name_aud %>
   </span>
 <% end %>
 <% unless event.items.blank? %>
