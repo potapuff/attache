@@ -104,3 +104,40 @@ nav, footer.page-footer {
 .alert-warning {background: #ffb74d;}
 .alert-danger{ background: #f3989b;}
 
+.modal .modal-content {
+  font-size: 16px;  
+  padding: 24px 24px 0;
+
+  h5 {
+    margin-bottom: 30px;
+  }
+
+  input[type="url"] {
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+    padding-left: 15px;
+    width: 95%;
+  }
+}
+
+table {
+  border-width: 0;
+  border-style: none;
+  border-color: #0000ff;
+  border-collapse: collapse;
+  margin: 0 auto;
+}
+td {
+  border-width: 0; 
+  border-style: none;
+  border-color: #0000ff; 
+  border-collapse: collapse;
+  border-radius: 0;
+  padding: 0; 
+  margin: 0; 
+  width: 8px; 
+  height: 8px; 
+}
+td.black { background-color: #000; }
+td.white { background-color: #fafafa; }

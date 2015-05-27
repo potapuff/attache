@@ -18,7 +18,7 @@ class EventsController < ApplicationController
     @events = Event.where(name_group: @group.name.upcase, date: [Date.today..1.week.from_now])
                   .eager_load(:items => [:answers])
                   .where('(session_id = ? or session_id is null)', session[:user])
-    render :list
+     render :list
   end
 
   def by_tutor
@@ -33,13 +33,22 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.where(uid: params[:id]).first
-    respond_to do |f|
+       
+      respond_to do |f|
       #f.html { render action: 'show' }
       f.html { render layout: 'mobile.html', action: 'show' }
       f.qr { qr }
       f.mobile { render layout: 'mobile.html', action: 'show' }
     end
   end
+
+  def qr_pic(path)
+    qr = RQRCode::QRCode.new(path, size: 5, level: :q)
+    png = qr.to_img
+    png.resize(200, 200)
+  end
+
+  helper_method :qr_pic
 
 private
 

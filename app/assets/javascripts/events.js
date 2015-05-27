@@ -63,3 +63,14 @@ function form_ajax_register(id) {
             });
         });
 }
+
+
+$(document).ready(function(){
+  $('.modal-trigger').leanModal();
+});
+
+function selectText(){
+  var oTextBox = document.getElementById('someTextField');
+  oTextBox.focus();
+  oTextBox.select();
+}
